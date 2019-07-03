@@ -99,7 +99,8 @@ class GameFragment : Fragment() {
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
 
-                        findNavController().navigate(GameFragmentDirections.destinationGameWon())
+                        findNavController()
+                                .navigate(GameFragmentDirections.destinationGameWon(numQuestions,questionIndex))
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.

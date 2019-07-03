@@ -22,7 +22,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.jkimuli.android.navigation.databinding.FragmentGameOverBinding
+import kotlinx.android.synthetic.main.fragment_game_over.*
 
 class GameOverFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -31,5 +33,22 @@ class GameOverFragment : Fragment() {
         val binding: FragmentGameOverBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_over, container, false)
         return binding.root
+    }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tryAgainButton.setOnClickListener {
+            navToTitle()
+        }
+
+    }
+
+    private fun navToTitle(){
+
+        // navigates back to the titleFragment when game is ended
+
+        findNavController().navigate(R.id.titleFragment)
     }
 }
